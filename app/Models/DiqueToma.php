@@ -6,27 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use OwenIt\Auditing\Contracts\Auditable;
 
-/**
- * Class DiqueToma
- *
- * @property $id
- * @property $estado
- * @property $parroquia
- * @property $municipio
- * @property $ref_sector
- * @property $utm_a
- * @property $utm_b
- * @property $acueducto
- * @property $toma_rio
- * @property $caudal_diseño
- * @property $caudal_recibe
- * @property $estatus
- * @property Acueducto $acueducto
- * @property Estado $estado
- * @property Municipio $municipio
- * @property Parroquia $parroquia
- * @mixin \Illuminate\Database\Eloquent\Builder
- */
+
 class DiqueToma extends Model implements Auditable
 {
     use  SoftDeletes;

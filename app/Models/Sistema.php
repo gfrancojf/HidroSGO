@@ -6,17 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use OwenIt\Auditing\Contracts\Auditable;
 
-/**
- * Class Sistema
- *
- * @property $id
- * @property $sistemas
- * @property $deleted_at
- * @property $created_at
- * @property $updated_at
- *
- * @mixin \Illuminate\Database\Eloquent\Builder
- */
+
 class Sistema extends Model implements Auditable
 {
     use SoftDeletes;
