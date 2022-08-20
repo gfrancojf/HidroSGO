@@ -23,7 +23,12 @@ class PermissionSeeder extends Seeder
             'ver-captacion', 'crear-captacion', 'editar-captacion', 'borrar-captacion',
             'ver-tomaAgua', 'crear-tomaAgua', 'editar-tomaAgua', 'borrar-tomaAgua',
             'ver-sistema', 'crear-sistema', 'editar-sistema', 'borrar-sistema',
-            'ver-tipofuente, crear-tipofuente', 'editar-tipofuente', 'borrar-tipofuente',
+            'ver-tipofuente', 'crear-tipofuente', 'editar-tipofuente', 'borrar-tipofuente',
+            'ver-infraestructura', 'crear-infraestructura', 'editar-infraestructura', 'borrar-infraestructura',
+            'ver-manifold', 'crear-manifold', 'editar-manifold', 'borrar-manifold',
+            'ver-valvulas', 'crear-valvulas', 'editar-valvulas', 'borrar-valvulas',
+            'ver-dtecnicos', 'crear-dtecnicos', 'editar-dtecnicos', 'borrar-dtecnicos',
+            'ver-bombeo', 'crear-bombeo', 'editar-bombeo', 'borrar-bombeo',
 
         ];
 

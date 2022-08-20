@@ -12,10 +12,10 @@ class InfraestructuraController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:ver-infraestructuras|crear-infraestructuras|editar-infraestructuras|borrar-infraestructuras', ['only' => ['index']]);
-        $this->middleware('permission:crear-infraestructuras', ['only' => ['create', 'store']]);
-        $this->middleware('permission:editar-infraestructuras', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:borrar-infraestructuras', ['only' => ['destroy']]);
+        $this->middleware('permission:ver-infraestructura|crear-infraestructura|editar-infraestructura|borrar-infraestructura', ['only' => ['index']]);
+        $this->middleware('permission:crear-infraestructura', ['only' => ['create', 'store']]);
+        $this->middleware('permission:editar-infraestructura', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:borrar-infraestructura', ['only' => ['destroy']]);
     }
     public function index()
     {

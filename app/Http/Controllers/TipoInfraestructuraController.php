@@ -14,62 +14,44 @@ class TipoInfraestructuraController extends Controller
      */
     public function index()
     {
-        //
+        $tipoinfraestructuras = TipoInfraestructura::paginate();
+        return view('tipoinfraestructura.index', compact('tipoinfraestructuras'))
+            ->with('i', (request()->input('page', 1) - 1) * $tipoinfraestructuras->perPage());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
-        //
+        $tipoinfraestructura = new TipoInfraestructura();
+        return view('tipoinfraestructura.create', compact('tipoinfraestructura'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
-        //
+        request()->validate(TipoInfraestructura::$rules);
+        $tipoinfraestructura = TipoInfraestructura::create($request->all());
+        return redirect()->route('tipoinfraestructuras.index')
+            ->with('success', 'TipoInfraestructura created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\TipoInfraestructura  $tipoInfraestructura
-     * @return \Illuminate\Http\Response
-     */
-    public function show(TipoInfraestructura $tipoInfraestructura)
+    
+    public function show($id)
     {
-        //
+        $tipoinfraestructura = TipoInfraestructura::find($id);
+        return view('tipoinfraestructura.show', compact('tipoinfraestructura'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\TipoInfraestructura  $tipoInfraestructura
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit(TipoInfraestructura $tipoInfraestructura)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TipoInfraestructura  $tipoInfraestructura
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function update(Request $request, TipoInfraestructura $tipoInfraestructura)
     {
         //
+
     }
 
     /**
