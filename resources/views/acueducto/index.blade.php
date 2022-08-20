@@ -1,29 +1,11 @@
-@extends ('adminlte::page')
+@extends('layouts.app')
 
-@section('title', 'Acueductos')
-
+@section('template_title')
+    Acueducto
+@endsection
 
 @section('content')
-
-
     <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-  
-        </div><!-- /.col -->
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="/home">INICIO</a></li>
-            <li class="breadcrumb-item active">listados  de Acueductos</li>
-          </ol>
-        </div><!-- /.col -->
-      </div><!-- /.row -->
-
-
-
-
-
-<div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -35,7 +17,7 @@
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('acueducto.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('acueductos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -52,33 +34,33 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                    <th>#</th>
+                                        <th>No</th>
                                         
 										<th>Nombre</th>
-										<th>Estado</th>
+										<th>Id Estado</th>
 										<th>Capacidad Distribucion</th>
 										<th>Capacidad Modificada</th>
 
-                                        <th>Acciones</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($acueductos as $acueducto)
                                         <tr>
-
-                                                <td>{{ ++$i }}</td>
+                                            <td>{{ ++$i }}</td>
+                                            
 											<td>{{ $acueducto->nombre }}</td>
-											<td>{{ $acueducto->estado}}</td>
+											<td>{{ $acueducto->id_estado }}</td>
 											<td>{{ $acueducto->capacidad_distribucion }}</td>
 											<td>{{ $acueducto->capacidad_modificada }}</td>
 
                                             <td>
-                                                <form action="{{ route('acueducto.destroy',$acueducto->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary" href="{{ route('acueducto.show',$acueducto->id) }}">  ver</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('acueducto.edit',$acueducto->id) }}">  editar</a>
+                                                <form action="{{ route('acueductos.destroy',$acueducto->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('acueductos.show',$acueducto->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('acueductos.edit',$acueducto->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger"> eliminar </button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -92,22 +74,4 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-@stop
-
-@section('css')
-<link ref="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-
-@stop
-
-
-
+@endsection

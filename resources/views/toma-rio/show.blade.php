@@ -14,7 +14,7 @@
                             <span class="card-title">Show Toma Rio</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('toma-rios.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('tomarios.index') }}"> Back</a>
                         </div>
                     </div>
 

@@ -28,12 +28,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Embalse') }}
+                                {{ __('Embalses') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('embalses.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear Nuevo Embalse') }}
                                 </a>
                               </div>
                         </div>
@@ -71,8 +71,8 @@
 
                                             <td>
                                                 <form action="{{ route('embalses.destroy',$embalse->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('embalses.show',$embalse->id) }}">ver</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('embalses.edit',$embalse->id) }}">editar</a>
+                                                    <a class="btn btn-sm btn-primary" href="{{ route('embalses.show',$embalse->id) }}">Ver</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('embalses.edit',$embalse->id) }}">Editar</a>
                                                     @csrf
                                                 </form>
                                             </td>

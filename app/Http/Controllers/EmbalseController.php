@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Embalse;
+use App\Models\Estado;
+use App\Models\Municipio;
+use App\Models\Parroquia;
 use Illuminate\Http\Request;
 
 /**
@@ -39,8 +42,9 @@ class EmbalseController extends Controller
     public function create()
     {
         $embalse = new Embalse();
+        $estados = Estado::get()->all();
+        return view('embalse.create',['estados' => $estados, 'embalse' => $embalse]);
 
-        return view('embalse.create', compact('embalse'));
     }
 
     /**

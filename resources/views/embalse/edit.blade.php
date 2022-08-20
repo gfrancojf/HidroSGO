@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Embalse</span>
+                        <span class="card-title">EDITAR {{ $embalse->nombre }}</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('embalses.update', $embalse->id) }}"  role="form" enctype="multipart/form-data">

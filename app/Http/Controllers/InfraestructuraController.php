@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 /**
  * Class InfraestructuraController
+ * @package App\Http\Controllers
  */
 class InfraestructuraController extends Controller
 {
@@ -31,14 +32,13 @@ class InfraestructuraController extends Controller
     public function create()
     {
         $infraestructura = new Infraestructura();
-
         return view('infraestructura.create', compact('infraestructura'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -54,7 +54,7 @@ class InfraestructuraController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -67,7 +67,7 @@ class InfraestructuraController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -80,8 +80,8 @@ class InfraestructuraController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  Infraestructura  $infraestructura
+     * @param  \Illuminate\Http\Request $request
+     * @param  Infraestructura $infraestructura
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Infraestructura $infraestructura)
@@ -95,9 +95,8 @@ class InfraestructuraController extends Controller
     }
 
     /**
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\RedirectResponse
-     *
      * @throws \Exception
      */
     public function destroy($id)

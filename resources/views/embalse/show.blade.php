@@ -9,17 +9,16 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+                    {{-- {{dd($embalse)}} --}}
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Embalse</span>
+                            <span class="card-title">MOSTRAR {{ $embalse->nombre }}</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('embalses.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('embalses.index') }}"> Volver</a>
                         </div>
                     </div>
-
                     <div class="card-body">
-                        
                         <div class="form-group">
                             <strong>Reg:</strong>
                             {{ $embalse->reg }}
@@ -68,7 +67,6 @@
                             <strong>Cronologia:</strong>
                             {{ $embalse->cronologia }}
                         </div>
-
                     </div>
                 </div>
             </div>

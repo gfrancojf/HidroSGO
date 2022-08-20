@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estado;
+use App\Models\Municipio;
+use App\Models\Parroquia;
+use DB;
 use App\Models\Plantas;
 use Illuminate\Http\Request;
 
@@ -14,7 +18,7 @@ class PlantasController extends Controller
      */
     public function index()
     {
-        //
+        return view('plantas.index');
     }
 
     /**
@@ -24,7 +28,8 @@ class PlantasController extends Controller
      */
     public function create()
     {
-        //
+        $estados = Estado::get()->all();
+        return view('plantas.create',['estados' => $estados]);
     }
 
     /**

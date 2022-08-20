@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Acueducto
+    Tipo Plantum
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Acueducto') }}
+                                {{ __('Tipo Plantum') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('acueducto.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('tipo-planta.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,28 +36,22 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Nombre</th>
-										<th>Estado</th>
-										<th>Capacidad Distribucion</th>
-										<th>Capacidad Modificada</th>
+										<th>Tipo Planta</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($acueductos as $acueducto)
+                                    @foreach ($tipoPlanta as $tipoPlantum)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $acueducto->nombre }}</td>
-											<td>{{ $acueducto->estado }}</td>
-											<td>{{ $acueducto->capacidad_distribucion }}</td>
-											<td>{{ $acueducto->capacidad_modificada }}</td>
+											<td>{{ $tipoPlantum->tipo_planta }}</td>
 
                                             <td>
-                                                <form action="{{ route('acueducto.destroy',$acueducto->id) }}" method="POST">
-                                                  //  <a class="btn btn-sm btn-primary " href="{{ route('acueducto.show',$acueducto->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('acueducto.edit',$acueducto->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('tipo-planta.destroy',$tipoPlantum->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('tipo-planta.show',$tipoPlantum->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('tipo-planta.edit',$tipoPlantum->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
@@ -70,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $acueductos->links() !!}
+                {!! $tipoPlanta->links() !!}
             </div>
         </div>
     </div>

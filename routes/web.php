@@ -6,10 +6,17 @@ use App\Http\Controllers\CaptacionController;
 use App\Http\Controllers\DiqueTomaController;
 use App\Http\Controllers\EmbalseController;
 use App\Http\Controllers\PozoProfundoController;
-use App\Http\Controllers\RolesControllers;
+use App\Http\Controllers\CicloController;
+use App\Http\Controllers\AbastecimientoController;
+use App\Http\Controllers\OrganizacionesController;
+use App\Http\Controllers\AveriasController;
 use App\Http\Controllers\TomaRioController;
+use App\Http\Controllers\PlantasController;
+use App\Http\Controllers\DireccionController;
+use App\Http\Controllers\RolesControllers;
 use App\Http\Controllers\UsuariosControllers;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,31 +51,16 @@ Route::group(['middleware' => ['auth']], function () {
 Route::resource('captacion', CaptacionController::class);
 Route::resource('acueducto', AcueductoController::class);
 Route::resource('embalses', EmbalseController::class);
+Route::resource('plantas', PlantasController::class);
 Route::resource('diquetoma', DiqueTomaController::class);
 Route::resource('tomarios', TomaRioController::class);
+Route::resource('ciclos', CicloController::class);
+Route::resource('averias', AveriasController::class);
+Route::resource('organizaciones', OrganizacionesController::class);
+Route::resource('abastecimiento', AbastecimientoController::class);
 Route::resource('pozoprofundos', PozoProfundoController::class);
 
-// Route::get('/Procesos_Hidricos/Captacion/Embalses',
-// [RegistroController::class,'ListarEmbalses'])->name('Captacion.Embalses');
-// Route::get('/Procesos_Hidricos/Aduccion/Estacion_Bombeo',
-// [RegistroController::class,'aduccionEB'])->name('aduccion.nuevaEB');
-// Route::post('/Procesos_Hidricos/Aduccion/Guardar_EB',
-// [RegistroController::class,'guardarEB'])->name('aduccion.guardarEB');
-// Route::get('/Procesos_Hidricos/Captacion/Dique_Toma',
-// [RegistroController::class,'ListarDiqueToma'])->name('lista.dique');
-// Route::get('/Procesos_Hidricos/Potabilizacion/Plantas_de_Filtracion',
-// [RegistroController::class,'potabilizacionFiltracion'])->name('pot.filtracion');
-// Route::post('/Procesos_Hidricos/Potabilizacion/Guardar_Plantas_de_Filtración',
-// [RegistroController::class,'guardarFiltracion'])->name('guardarFiltracion');
-// Route::get('/Procesos_Hidricos/Potabilizacion/Plantas_Deszanilizadoras',
-// [RegistroController::class,'potabilizacionDeszanilizadoras'])->name('pot.deszanilizadoras');
-// Route::post('/Procesos_Hidricos/Potabilizacion/Guardar_Plantas_Deszanilizadoras',
-// [RegistroController::class,'guardarDeszanilizadoras'])->name('guardar.deszanilizadoras');
-// Route::get('/Procesos_Hidricos/Potabilizacion/Plantas_Potabilizadoras',
-// [RegistroController::class,'potabilizacionPotabilizadoras'])->name('pot.potabilizadoras');
-// Route::post('/Procesos_Hidricos/Potabilizacion/Guardar_Plantas_Potabilizadoras',
-// [RegistroController::class,'guardarPotabilizadoras'])->name('guardar.Potabilizadoras');
-// Route::get('/Procesos_Hidricos/Potabilizacion/Plantas_Portatiles',
-// [RegistroController::class,'potabilizacionPortatiles'])->name('pot.Portatiles');
-// Route::post('/Procesos_Hidricos/Potabilizacion/Guardar_Plantas_Portatiles',
-// [RegistroController::class,'guardarPortatiles'])->name('guardar.Portatiles');
+Route::post('/llenarMunicipios',[DireccionController::class, 'llenarMunicipios']);
+Route::post('/llenarParroquias',[DireccionController::class, 'llenarParroquias']);
+
+

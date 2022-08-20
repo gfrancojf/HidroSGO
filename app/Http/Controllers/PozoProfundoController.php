@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\PozoProfundo;
+use App\Models\Estado;
+use App\Models\Municipio;
+use App\Models\Parroquia;
 use Illuminate\Http\Request;
 
 /**
@@ -39,8 +42,9 @@ class PozoProfundoController extends Controller
     public function create()
     {
         $pozoProfundo = new PozoProfundo();
+        $estados = Estado::get()->all();
 
-        return view('pozo-profundo.create', compact('pozoProfundo'));
+        return view('pozo-profundo.create',['pozoProfundo' => $pozoProfundo, 'estados' => $estados]);
     }
 
     /**

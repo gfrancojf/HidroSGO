@@ -11,13 +11,12 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Dique Toma</span>
+                            <span class="card-title">VER {{ $diqueToma->nombre }}</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('diquetoma.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('diquetoma.index') }}"> VOLVER</a>
                         </div>
                     </div>
-
                     <div class="card-body">
                         <div class="form-group">
                             <strong>Nombre:</strong>

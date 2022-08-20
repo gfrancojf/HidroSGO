@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\TomaRio;
+use App\Models\Estado;
+use App\Models\Municipio;
+use App\Models\Parroquia;
 use Illuminate\Http\Request;
 
 /**
@@ -40,7 +43,8 @@ class TomaRioController extends Controller
     {
         $tomaRio = new TomaRio();
 
-        return view('toma-rio.create', compact('tomaRio'));
+        $estados = Estado::get()->all();
+        return view('toma-rio.create', ['estados' => $estados, 'tomaRio' => $tomaRio]);
     }
 
     /**
