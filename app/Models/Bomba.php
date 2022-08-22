@@ -35,6 +35,7 @@ class Bomba extends Model
 {
     use SoftDeletes;
 
+<<<<<<< HEAD
     static $rules = [
 		'grupo' => 'required',
 		'nro_etapas' => 'required',
@@ -79,3 +80,11 @@ class Bomba extends Model
     
 
 }
+=======
+    protected $table = 'bombas';
+    protected $perPage = 20;
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+    protected $dates = ['deleted_at'];
+    
+}
+>>>>>>> franco

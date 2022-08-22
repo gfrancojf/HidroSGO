@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\AcueductoController;
-use App\Http\Controllers\AuditsController;
+use App\Http\Controllers\AcueductoController, App\Http\Controllers\AuditsController;
+
 use App\Http\Controllers\CaptacionController;
 use App\Http\Controllers\DiqueTomaController;
 use App\Http\Controllers\EmbalseController;
@@ -15,8 +15,18 @@ use App\Http\Controllers\PlantasController;
 use App\Http\Controllers\DireccionController;
 use App\Http\Controllers\RolesControllers;
 use App\Http\Controllers\UsuariosControllers;
+use App\Http\Controllers\ValvulasController;
+use App\Http\Controllers\TipoValvulasController;
+use App\Http\Controllers\FabricantesController;
+use App\Http\Controllers\InfraestructuraController;
+use App\Http\Controllers\EstacionBombeoController;
+use App\Http\Controllers\TipoInfraestructuraController;
+
+
+
 use Illuminate\Support\Facades\Route;
 
+<<<<<<< HEAD
 
 /*
 |--------------------------------------------------------------------------
@@ -28,24 +38,46 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+=======
+>>>>>>> franco
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-// bloqueamos el registro por ruto register
+// bloqueamos el registro por ruta register
 Auth::routes(['register' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //y creamos un grupo de rutas protegidas para los controladores
 Route::group(['middleware' => ['auth']], function () {
-    Route::post('usuarios/{id}/restore', [UsuariosControllers::class, 'restore'])->name('usuarios.restore');
-    Route::resource('roles', RolesControllers::class);
-    Route::resource('/usuarios', UsuariosControllers::class);
 
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::resources([
+        'usuarios' => UsuariosControllers::class,
+        'roles' => RolesControllers::class,
+        'acueducto' => AcueductoController::class,
+        'captacion' => CaptacionController::class,
+        'dique_toma' => DiqueTomaController::class,
+        'embalses' => EmbalseController::class,
+        'pozo_profundo' => PozoProfundoController::class,
+        'toma_rio' => TomaRioController::class,
+        'valvulas' => ValvulasController::class,
+        'tipovalvulas' => TipoValvulasController::class,
+        'infraestructura' => InfraestructuraController::class,
+        'fabricantes' => FabricantesController::class,
+        'tipoinfraestructura' => TipoInfraestructuraController::class,
+
+
+
+    ]);
+
+
+    Route::post('usuarios/{id}/restore', [UsuariosControllers::class, 'restore'])->name('usuarios.restore');
     Route::get('/auditar', [AuditsController::class, 'index'])->name('auditar.index');
 });
+<<<<<<< HEAD
 //// rutas que se deben optimizar ////
 // REGISTRO //
 Route::resource('captacion', CaptacionController::class);
@@ -64,3 +96,5 @@ Route::post('/llenarMunicipios',[DireccionController::class, 'llenarMunicipios']
 Route::post('/llenarParroquias',[DireccionController::class, 'llenarParroquias']);
 
 
+=======
+>>>>>>> franco

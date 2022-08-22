@@ -1,84 +1,54 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Valvulas;
 use Illuminate\Http\Request;
 
 class ValvulasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
     {
-        //
+        $this->middleware('permission:ver-valvulas|crear-valvulas|editar-valvulas|borrar-valvulas', ['only' => ['index']]);
+        $this->middleware('permission:crear-valvulas', ['only' => ['create', 'store']]);
+        $this->middleware('permission:editar-valvulas', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:borrar-valvulas', ['only' => ['destroy']]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ public function index()
+    {
+        $valvulas = Valvulas::paginate();
+        return view('valvulas.index', compact('valvulas'))
+            ->with('i', (request()->input('page', 1) - 1) * $valvulas->perPage());
+    }
+   
     public function create()
     {
-        //
+   
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Valvulas  $valvulas
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Valvulas $valvulas)
+
+    public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Valvulas  $valvulas
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Valvulas $valvulas)
+    public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Valvulas  $valvulas
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Valvulas $valvulas)
+    public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Valvulas  $valvulas
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Valvulas $valvulas)
+
+    public function destroy($id)
     {
         //
     }

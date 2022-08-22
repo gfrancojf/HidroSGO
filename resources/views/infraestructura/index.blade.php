@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('layouts.app')
 
 @section('template_title')
@@ -6,6 +7,25 @@
 
 @section('content')
     <div class="container-fluid">
+=======
+@extends ('adminlte::page')
+
+@section('title' )
+@section('content')
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/home">INICIO</a></li>
+                    <li class="breadcrumb-item active">Infraestructura</li>
+                </ol>
+            </div><!-- /.col -->
+        </div>
+    </div>
+    <div class="container-fluid">
+>>>>>>> franco
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -13,12 +33,21 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
+<<<<<<< HEAD
                                 {{ __('Infraestructura') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('infraestructuras.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
+=======
+                                {{ __(' Lista de Infraestructura') }}
+                            </span>
+
+                             <div class="float-right">
+                                <a href="{{ route('infraestructura.create') }}" class="btn btn-primary btn-sm float-right" data-placement="left">
+                                  {{ __(' Agregar Registro') }}
+>>>>>>> franco
                                 </a>
                               </div>
                         </div>
@@ -35,6 +64,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
+<<<<<<< HEAD
                                         
 										<th>Nombre</th>
 										<th>Propietario</th>
@@ -54,17 +84,31 @@
 										<th>Id Acueducto</th>
 
                                         <th></th>
+=======
+										<th>nombre</th>
+										<th>propietario </th>
+										<th>constructura</th>
+										<th>proposito</th>
+										<th>id_estado</th>
+										<th>id_municipio</th>
+										<th>id_parroquia</th>
+                                        <th>Opciones</th>
+>>>>>>> franco
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($infraestructuras as $infraestructura)
                                         <tr>
                                             <td>{{ ++$i }}</td>
+<<<<<<< HEAD
                                             
+=======
+>>>>>>> franco
 											<td>{{ $infraestructura->nombre }}</td>
 											<td>{{ $infraestructura->propietario }}</td>
 											<td>{{ $infraestructura->constructura }}</td>
 											<td>{{ $infraestructura->proposito }}</td>
+<<<<<<< HEAD
 											<td>{{ $infraestructura->img }}</td>
 											<td>{{ $infraestructura->id_estado }}</td>
 											<td>{{ $infraestructura->id_municipio }}</td>
@@ -85,6 +129,17 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+=======
+											<td>{{ $infraestructura->id_estado }}</td>
+											<td>{{ $infraestructura->id_municipio }}</td>
+                                            <td>{{ $infraestructura->id_parroquia }}</td>
+
+                                            <td>
+                                                <form action="{{ route('infraestructura.destroy',$infraestructura->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('infraestructura.show',$infraestructura->id) }}">ver</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('infraestructura.edit',$infraestructura->id) }}">Editar</a>
+                                                    @csrf
+>>>>>>> franco
                                                 </form>
                                             </td>
                                         </tr>
@@ -98,4 +153,17 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 @endsection
+=======
+
+@stop
+
+@section('css')
+    <link ref="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+
+@stop
+>>>>>>> franco

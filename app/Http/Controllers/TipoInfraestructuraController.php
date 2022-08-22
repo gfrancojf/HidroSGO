@@ -18,19 +18,22 @@ class TipoInfraestructuraController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         $tipoInfraestructuras = TipoInfraestructura::paginate();
 
         return view('tipo-infraestructura.index', compact('tipoInfraestructuras'))
             ->with('i', (request()->input('page', 1) - 1) * $tipoInfraestructuras->perPage());
+=======
+        $tipoinfraestructuras = TipoInfraestructura::paginate();
+        return view('tipoinfraestructura.index', compact('tipoinfraestructuras'))
+            ->with('i', (request()->input('page', 1) - 1) * $tipoinfraestructuras->perPage());
+>>>>>>> franco
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
+<<<<<<< HEAD
         $tipoInfraestructura = new TipoInfraestructura();
         return view('tipo-infraestructura.create', compact('tipoInfraestructura'));
     }
@@ -71,12 +74,36 @@ class TipoInfraestructuraController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
+=======
+        $tipoinfraestructura = new TipoInfraestructura();
+        return view('tipoinfraestructura.create', compact('tipoinfraestructura'));
+    }
+
+   
+    public function store(Request $request)
+    {
+        request()->validate(TipoInfraestructura::$rules);
+        $tipoinfraestructura = TipoInfraestructura::create($request->all());
+        return redirect()->route('tipoinfraestructuras.index')
+            ->with('success', 'TipoInfraestructura created successfully.');
+    }
+
+    
+    public function show($id)
+    {
+        $tipoinfraestructura = TipoInfraestructura::find($id);
+        return view('tipoinfraestructura.show', compact('tipoinfraestructura'));
+    }
+   
+    public function edit(TipoInfraestructura $tipoInfraestructura)
+>>>>>>> franco
     {
         $tipoInfraestructura = TipoInfraestructura::find($id);
 
         return view('tipo-infraestructura.edit', compact('tipoInfraestructura'));
     }
 
+<<<<<<< HEAD
     /**
      * Update the specified resource in storage.
      *
@@ -92,6 +119,13 @@ class TipoInfraestructuraController extends Controller
 
         return redirect()->route('tipo-infraestructuras.index')
             ->with('success', 'TipoInfraestructura updated successfully');
+=======
+ 
+    public function update(Request $request, TipoInfraestructura $tipoInfraestructura)
+    {
+        //
+
+>>>>>>> franco
     }
 
     /**

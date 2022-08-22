@@ -11,11 +11,13 @@ use Illuminate\Http\Request;
  */
 class InfraestructuraController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('permission:ver-infraestructura|crear-infraestructura|editar-infraestructura|borrar-infraestructura', ['only' => ['index']]);
+        $this->middleware('permission:crear-infraestructura', ['only' => ['create', 'store']]);
+        $this->middleware('permission:editar-infraestructura', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:borrar-infraestructura', ['only' => ['destroy']]);
+    }
     public function index()
     {
         $infraestructuras = Infraestructura::paginate();
@@ -43,10 +45,8 @@ class InfraestructuraController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Infraestructura::$rules);
-
+       request()->validate(Infraestructura::$rules);
         $infraestructura = Infraestructura::create($request->all());
-
         return redirect()->route('infraestructuras.index')
             ->with('success', 'Infraestructura created successfully.');
     }
