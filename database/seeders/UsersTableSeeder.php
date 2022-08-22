@@ -2,10 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
-class UsersTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder 
 {
     public function run()
     {

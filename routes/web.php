@@ -26,7 +26,7 @@ use App\Http\Controllers\TipoInfraestructuraController;
 
 use Illuminate\Support\Facades\Route;
 
-<<<<<<< HEAD
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,8 +38,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-=======
->>>>>>> franco
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -77,7 +76,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('usuarios/{id}/restore', [UsuariosControllers::class, 'restore'])->name('usuarios.restore');
     Route::get('/auditar', [AuditsController::class, 'index'])->name('auditar.index');
 });
-<<<<<<< HEAD
+
 //// rutas que se deben optimizar ////
 // REGISTRO //
 Route::resource('captacion', CaptacionController::class);
@@ -96,5 +95,4 @@ Route::post('/llenarMunicipios',[DireccionController::class, 'llenarMunicipios']
 Route::post('/llenarParroquias',[DireccionController::class, 'llenarParroquias']);
 
 
-=======
->>>>>>> franco
+
