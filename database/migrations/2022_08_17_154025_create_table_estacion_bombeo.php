@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dique_tomas', function (Blueprint $table) {
+        Schema::create('estacion_bombeo', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('reg');
-            $table->string('nombre')->comment('nombre dique');
-            $table->string('toma_rio');
-            $table->unsignedDecimal('caudal_diseno');
-            $table->unsignedDecimal('caudal_recibe');
-            $table->integer('status');
+            $table->string('nombre')->comment('nombre estacion de bombeo');
+            $table->unsignedBigInteger('cantidad_grupos');
+            $table->unsignedBigInteger('id_tipo_estacion_bombeo');
+            $table->unsignedBigInteger('id_tipo_servicio');
             $table->unsignedBigInteger('id_infraestructura');
             $table->foreign('id_infraestructura')->references('id')->on('infraestructura');
+            $table->foreign('id_tipo_estacion_bombeo')->references('id')->on('tipo_estacion_bombeo');
+            $table->foreign('id_tipo_servicio')->references('id')->on('tipo_servicio_estacion_bombeo');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dique_tomas');
+        Schema::dropIfExists('estacion_bombeo');
     }
 };

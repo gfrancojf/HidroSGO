@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('pozo_profundos', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('dni')->unique();
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->unsignedBigInteger('reg')->comment('por descubrir');
+            $table->string('nombre')->comment('nombre pozo profundo');
+            $table->unsignedDecimal('caudal_diseno');
+            $table->unsignedBigInteger('id_infraestructura');
+            $table->foreign('id_infraestructura')->references('id')->on('infraestructura');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('pozo_profundos');
     }
 };

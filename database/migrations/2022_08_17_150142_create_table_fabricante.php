@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('fabricante', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('dni')->unique();
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('nombre')->comment('marca');
+            $table->string('modelo')->comment('modelo');
+            $table->string('serial')->comment('serial del componente');
+            $table->string('origen')->comment('origen de la tecnologia');
+            $table->string('ficha')->comment('ficha tecnica');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('fabricante');
     }
 };
