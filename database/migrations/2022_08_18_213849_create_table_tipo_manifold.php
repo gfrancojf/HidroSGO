@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('table_tipo_manifold', function (Blueprint $table) {
+   Schema::create('tipo_manifold', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-        });
+            $table->string('tipo_manifold');
+ });
+
     }
 
     /**
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_tipo_manifold');
+        Schema::dropIfExists('tipo_manifold');
     }
 };

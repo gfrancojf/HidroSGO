@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('table_manifold', function (Blueprint $table) {
+        Schema::create('ubicacion_geografica', function (Blueprint $table) {
             $table->id();
+            $table->Integer('coordenadas_utm_a');
+            $table->Integer('coordenadas_utm_b');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_manifold');
+        Schema::dropIfExists('ubicacion_geografica');
     }
 };

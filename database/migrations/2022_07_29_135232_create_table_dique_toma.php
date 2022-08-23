@@ -17,23 +17,21 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('reg');
             $table->string('nombre')->comment('nombre dique');
-            $table->unsignedBigInteger('id_estado');
-            $table->unsignedBigInteger('id_parroquia');
-            $table->unsignedBigInteger('id_municipio');
+            $table->unsignedBigInteger('estado');
+            $table->unsignedBigInteger('parroquia');
+            $table->unsignedBigInteger('municipio');
             $table->string('desc_ubicacion')->comment('referencia sector');
-            $table->unsignedBigInteger('id_coordenadas')->comment('coordenadas');
-            $table->foreign('id_coordenadas')->references('id')->on('ubicacion_geografica');
-            $table->unsignedBigInteger('id_acueducto');
+            $table->unsignedDecimal('utm_a', $precision=15);
+            $table->unsignedDecimal('utm_b', $precision=15);
+            $table->unsignedBigInteger('acueducto');
             $table->string('toma_rio');
             $table->unsignedDecimal('caudal_diseno');
             $table->unsignedDecimal('caudal_recibe');
             $table->integer('status');
-            $table->foreign('id_acueducto')->references('id')->on('acueductos');
-            $table->foreign('id_estado')->references('id')->on('estados');
-            $table->foreign('id_municipio')->references('id')->on('municipios');
-            $table->foreign('id_parroquia')->references('id')->on('parroquias');
-
-            $table->softDeletes();
+            $table->foreign('acueducto')->references('id')->on('acueductos');
+            $table->foreign('estado')->references('id')->on('estados');
+            $table->foreign('municipio')->references('id')->on('municipios');
+            $table->foreign('parroquia')->references('id')->on('parroquias');
             $table->timestamps();
         });
     }

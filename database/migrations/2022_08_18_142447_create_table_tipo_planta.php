@@ -14,11 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tipo_planta', function (Blueprint $table) {
-            $table->id();
-            $table->string('tipo_planta')->comment('tipo de planta');
-            $table->softDeletes();
-            $table->timestamps();
-        });
+    $table->id();
+    $table->string('tipo_planta')->comment('tipo de planta');
+    $table->softDeletes();
+    $table->timestamps();
+});
+
     }
 
     /**

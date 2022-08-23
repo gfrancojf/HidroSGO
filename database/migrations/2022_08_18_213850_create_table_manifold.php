@@ -13,18 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detalles_tecnicos_estacion_bombeo', function (Blueprint $table) {
+        Schema::create('manifold', function (Blueprint $table) {
             $table->id();
-            $table->unsignedDecimal('succion_min');
-            $table->unsignedDecimal('succion_max');
-            $table->unsignedDecimal('descarga_min');
-            $table->unsignedDecimal('descarga_max');
-            $table->unsignedDecimal('amp_min');
-            $table->unsignedDecimal('amp_max');
-            $table->unsignedDecimal('voltaje_min');
-            $table->unsignedDecimal('voltaje_max');
+            $table->string('nombre')->comment('nombre del manifold');
+            $table->unsignedBigInteger('id_tipo_manifold');
+            $table->unsignedBigInteger('cant_bridas');
+            $table->unsignedBigInteger('cant_monometro');
+            $table->unsignedBigInteger('cant_valvulas');
+            $table->unsignedBigInteger('cant_tuberias');
+            $table->boolean('operatividad');
             $table->unsignedBigInteger('id_estacion_bombeo');
             $table->foreign('id_estacion_bombeo')->references('id')->on('estacion_bombeo');
+            $table->foreign('id_tipo_manifold')->references('id')->on('tipo_manifold');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -37,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalles_tecnicos_estacion_bombeo');
+        Schema::dropIfExists('manifold');
     }
 };
