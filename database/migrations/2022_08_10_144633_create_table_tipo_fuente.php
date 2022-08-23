@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('tipo')->comment('tipo de fuente');
             $table->softDeletes();
             $table->timestamps();
-        });
+        })
     }
 
     /**

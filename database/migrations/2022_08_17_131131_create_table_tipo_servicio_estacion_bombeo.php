@@ -14,11 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tipo_servicio_estacion_bombeo', function (Blueprint $table) {
-            $table->id();
-            $table->string('tipo_servicio_estacion_bombeo');
-            $table->softDeletes();
-            $table->timestamps();
-        });
+    $table->id();
+    $table->string('tipo_servicio_estacion_bombeo');
+    $table->softDeletes();
+    $table->timestamps();
+});
+;
     }
 
     /**

@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_estacion_bombeo', function (Blueprint $table) {
-            $table->id();
-            $table->string('tipo_estacion_bombeo');
-            $table->softDeletes();
-            $table->timestamps();
-        });
+       Schema::create('tipo_estacion_bombeo', function (Blueprint $table) {
+    $table->id();
+    $table->string('tipo_estacion_bombeo');
+    $table->softDeletes();
+    $table->timestamps();
+});
+
     }
 
     /**
