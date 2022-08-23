@@ -15,5 +15,5 @@ class Ubicacion_geografica extends Model implements Auditable
     protected $perPage = 20;
     protected $guarded = ['id', 'created_at', 'updated_at'];
     protected $dates = ['deleted_at'];
-    
+
 }

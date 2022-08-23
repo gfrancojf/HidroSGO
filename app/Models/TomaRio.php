@@ -28,8 +28,10 @@ class TomaRio extends Model implements Auditable
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'estado', 'municipio', 'parroquia', 'sector', 'coordenadas'];
+ //   protected $fillable = ['nombre', 'estado', 'municipio', 'parroquia', 'sector', 'coordenadas'];
 
+     protected $table  = 'toma_rio';
+     protected $dates = ['deleted_at'];
     public function estado()
     {
 // <<<<<<< HEAD
@@ -48,7 +50,7 @@ class TomaRio extends Model implements Auditable
 // >>>>>>> 393e7f628c8fb60e7fd24cbd9bd2626c9bb8aba8
     }
 
-  
+
     public function parroquia()
     {
 // <<<<<<< HEAD
@@ -58,7 +60,7 @@ class TomaRio extends Model implements Auditable
 // >>>>>>> 393e7f628c8fb60e7fd24cbd9bd2626c9bb8aba8
     }
 
-  
+
     public function ubicacionGeografica()
     {
         return $this->hasOne('App\Models\UbicacionGeografica', 'id', 'id_coordenadas');

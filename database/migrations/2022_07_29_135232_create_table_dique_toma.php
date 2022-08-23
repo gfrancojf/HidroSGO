@@ -32,7 +32,10 @@ return new class extends Migration
             $table->foreign('estado')->references('id')->on('estados');
             $table->foreign('municipio')->references('id')->on('municipios');
             $table->foreign('parroquia')->references('id')->on('parroquias');
+            $table->softDeletes();
+
             $table->timestamps();
+
         });
     }
 
