@@ -13,20 +13,29 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('valvulas', function (Blueprint $table) {
+        Schema::create('tipo_tension_tablero', function (Blueprint $table) {
             $table->id();
-            $table->unsignedDecimal('diametro');
-            $table->unsignedDecimal('presion_nominal');
-            $table->unsignedBigInteger('id_tipo_valvula');
-            $table->string('accionamiento')->comment('accionamiento');
-            $table->unsignedDecimal('fc');
+            $table->string('tipo_tension_tablero');
+            $table->softDeletes();
+            $table->timestamps();
+        });
+        Schema::create('tableros', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedDecimal('ancho');
+            $table->unsignedDecimal('alto');
+            $table->unsignedDecimal('profundidad');
+            $table->unsignedDecimal('aislante');
+            $table->unsignedDecimal('capacidad');
             $table->unsignedBigInteger('id_estacion_bombeo');
             $table->unsignedBigInteger('id_fabricante');
+            $table->unsignedBigInteger('id_tipo_tension');
             $table->tinyInteger('operatividad');
             $table->tinyInteger('en_uso');
-            $table->foreign('id_tipo_valvula')->references('id')->on('tipo_valvulas');
+            $table->Integer('grupo');
+
             $table->foreign('id_estacion_bombeo')->references('id')->on('estacion_bombeo');
             $table->foreign('id_fabricante')->references('id')->on('fabricante');
+            $table->foreign('id_tipo_tension')->references('id')->on('tipo_tension_tablero');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -39,6 +48,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('valvulas');
+        Schema::dropIfExists('tipo_tension_tablero');
+        Schema::dropIfExists('tableros');
     }
 };
