@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\DiqueToma;
+use App\Models\Estado;
+use App\Models\Municipio;
+use App\Models\Parroquia;
+use DB;
 use Illuminate\Http\Request;
 
 /**
  * Class DiqueTomaController
- * @package App\Http\Controllers
  */
 class DiqueTomaController extends Controller
 {
@@ -16,6 +19,14 @@ class DiqueTomaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('permission:ver-diquetoma|crear-diquetoma|editar-diquetoma|borrar-diquetoma', ['only' => ['index']]);
+        $this->middleware('permission:crear-diquetoma', ['only' => ['create', 'store']]);
+        $this->middleware('permission:editar-diquetoma', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:borrar-diquetoma', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         $diqueTomas = DiqueToma::paginate();
@@ -32,13 +43,16 @@ class DiqueTomaController extends Controller
     public function create()
     {
         $diqueToma = new DiqueToma();
-        return view('dique-toma.create', compact('diqueToma'));
+
+        $estados = Estado::get()->all();
+        return view('dique-toma.create',['diqueToma' => $diqueToma, 'estados' => $estados]);
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -54,7 +68,7 @@ class DiqueTomaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -67,21 +81,35 @@ class DiqueTomaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $diqueToma = DiqueToma::find($id);
+        DB::enableQueryLog();
+        // dd($id);
+        $diqueToma = DiqueToma::join('estados as id_estado','id_estado.id','dique_tomas.estado')
+        ->join('municipios','municipios.id','dique_tomas.municipio')
+        ->join('parroquias','parroquias.id','dique_tomas.parroquia')
+        ->join('acueductos','acueductos.id','dique_tomas.acueducto')
+        ->find($id);
+        // ->where('dique_tomas.id','=',$id)->get();
+        // dd($id);
 
-        return view('dique-toma.edit', compact('diqueToma'));
+        $q = DB::getQueryLog();
+        // dd($q, $diqueToma);
+
+        $estados = Estado::get()->all();
+        // dd($diqueToma, $estados);
+
+        return view('dique-toma.edit', ['diqueToma' => $diqueToma, 'estados' => $estados]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  DiqueToma $diqueToma
+     * @param  \Illuminate\Http\Request  $request
+     * @param  DiqueToma  $diqueToma
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, DiqueToma $diqueToma)
@@ -95,8 +123,9 @@ class DiqueTomaController extends Controller
     }
 
     /**
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
+     *
      * @throws \Exception
      */
     public function destroy($id)

@@ -11,26 +11,28 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Dique Toma</span>
+                            <span class="card-title">VER {{ $diqueToma->nombre }}</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('dique-tomas.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('diquetoma.index') }}"> VOLVER</a>
                         </div>
                     </div>
-
                     <div class="card-body">
-                        
                         <div class="form-group">
-                            <strong>Estado:</strong>
-                            {{ $diqueToma->estado }}
+                            <strong>Nombre:</strong>
+                            {{ $diqueToma->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Parroquia:</strong>
-                            {{ $diqueToma->parroquia }}
+                            <strong>Nombre:</strong>
+                            {{ $diqueToma->estado->estado }}
                         </div>
                         <div class="form-group">
                             <strong>Municipio:</strong>
-                            {{ $diqueToma->municipio }}
+                            {{ $diqueToma->municipio->municipio }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Parroquia:</strong>
+                            {{ $diqueToma->parroquia->parroquia }}
                         </div>
                         <div class="form-group">
                             <strong>Ref Sector:</strong>
@@ -46,7 +48,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Acueducto:</strong>
-                            {{ $diqueToma->acueducto }}
+                            {{ $diqueToma->acueducto->nombre }}
                         </div>
                         <div class="form-group">
                             <strong>Toma Rio:</strong>

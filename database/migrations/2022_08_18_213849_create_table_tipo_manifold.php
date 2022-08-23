@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
+<<<<<<< HEAD
         Schema::create('tipo_manifold', function (Blueprint $table) {
             $table->id();
             $table->string('tipo_manifold');
+=======
+        Schema::create('table_tipo_manifold', function (Blueprint $table) {
+            $table->id();
+>>>>>>> master
             $table->timestamps();
         });
     }

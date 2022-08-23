@@ -195,16 +195,14 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
- // se agrega el paquete de laravel permiso
+        // se agrega el paquete de laravel permiso
         Spatie\Permission\PermissionServiceProvider::class,
- // se agrega el debugger
+        // se agrega el debugger
         Barryvdh\Debugbar\ServiceProvider::class,
- // se agrega la auditoria
+        // se agrega la auditoria
         OwenIt\Auditing\AuditingServiceProvider::class,
-         // se agrega la domPDF
+        // se agrega la domPDF
         Barryvdh\DomPDF\ServiceProvider::class,
-
-
 
     ],
 

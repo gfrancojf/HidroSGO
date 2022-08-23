@@ -1,35 +1,20 @@
+@extends('layouts.app')
 
-   @extends ('adminlte::page')
-
-@section('title', 'Acueductos')
-
+@section('template_title')
+    {{ $acueducto->name ?? 'Show Acueducto' }}
+@endsection
 
 @section('content')
-
-
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-  
-        </div><!-- /.col -->
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="/home">INICIO</a></li>
-            <li class="breadcrumb-item active">           {{ $acueducto->nombre }}</li>
-          </ol>
-        </div><!-- /.col -->
-      </div><!-- /.row -->
-
- <section class="content container-fluid">
+    <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Detalles del  Acueducto: <strong> {{ $acueducto->nombre }}</strong></span>
+                            <span class="card-title">Show Acueducto</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('acueducto.index') }}">Regresar</a>
+                            <a class="btn btn-primary" href="{{ route('acueductos.index') }}"> Back</a>
                         </div>
                     </div>
 
@@ -40,8 +25,8 @@
                             {{ $acueducto->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Estado:</strong>
-                            {{ $acueducto->estado }}
+                            <strong>Id Estado:</strong>
+                            {{ $acueducto->id_estado }}
                         </div>
                         <div class="form-group">
                             <strong>Capacidad Distribucion:</strong>
@@ -57,15 +42,4 @@
             </div>
         </div>
     </section>
-
-
-          
-@stop
-
-@section('css')
-<link ref="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-
-@stop
+@endsection

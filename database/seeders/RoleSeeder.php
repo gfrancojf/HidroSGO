@@ -7,21 +7,20 @@ use Spatie\Permission\Models\Role;
 
 class RoleSeeder extends Seeder
 {
-   
     public function run()
     {
         app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
 
         $roles = [
-            'Administrador', 
+            'Administrador',
             'Supervisor',
-            'Observador',     
+            'Observador',
             'Usuario',
         ];
 
         foreach ($roles as $role) {
             Role::create([
-                'name' => $role
+                'name' => $role,
             ]);
         }
     }

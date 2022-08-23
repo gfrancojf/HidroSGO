@@ -6,12 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Contracts\Auditable;
 
-
-
 class Fuentes extends Model implements Auditable
 {
     use HasFactory;
     use \OwenIt\Auditing\Auditable;
-    protected $dates = ['deleted_at'];
 
+    protected $dates = ['deleted_at'];
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\audits;
-use Illuminate\Http\Request;
 
 class AuditsController extends Controller
 {
@@ -16,7 +15,7 @@ class AuditsController extends Controller
     {
         $user = auth()->user();
         $audits = audits::paginate(1);
-        return view('auditoria.index',compact('audits', 'user'));
-    }
 
+        return view('auditoria.index', compact('audits', 'user'));
+    }
 }

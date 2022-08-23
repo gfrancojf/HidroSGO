@@ -2,17 +2,38 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * Class Acueducto
+ *
+ * @property $id
+ * @property $nombre
+ * @property $id_estado
+ * @property $capacidad_distribucion
+ * @property $capacidad_modificada
+ * @property $deleted_at
+ * @property $created_at
+ * @property $updated_at
+ *
+ * @property Captacion[] $captacions
+ * @property DiqueToma[] $diqueTomas
+ * @property EstacionBombeo[] $estacionBombeos
+ * @property Estado $estado
+ * @property Infraestructura[] $infraestructuras
+ * @property Planta[] $plantas
+ * @property PozoProfundo[] $pozoProfundos
+ * @package App
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ */
 class Acueducto extends Model
 {
-    
-    use HasFactory;
+    use SoftDeletes;
 
     static $rules = [
 		'nombre' => 'required',
-		'estado' => 'required',
+		'id_estado' => 'required',
 		'capacidad_distribucion' => 'required',
 		'capacidad_modificada' => 'required',
     ];
@@ -24,17 +45,63 @@ class Acueducto extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre','estado','capacidad_distribucion','capacidad_modificada'];
+    protected $fillable = ['nombre','id_estado','capacidad_distribucion','capacidad_modificada'];
 
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function captacions()
+    {
+        return $this->hasMany('App\Models\Captacion', 'id_acueducto', 'id');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function diqueTomas()
+    {
+        return $this->hasMany('App\Models\DiqueToma', 'id_acueducto', 'id');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function estacionBombeos()
+    {
+        return $this->hasMany('App\Models\EstacionBombeo', 'id_acueducto', 'id');
+    }
+    
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function estado()
     {
-
-        return $this->hasMany('Estado', 'id', 'estado');
-        //return $this->belongsTo('App\Models\Estado', 'id', 'estado');
+        return $this->hasOne('App\Models\Estado', 'id', 'id_estado');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function infraestructuras()
+    {
+        return $this->hasMany('App\Models\Infraestructura', 'id_acueducto', 'id');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function plantas()
+    {
+        return $this->hasMany('App\Models\Planta', 'id_acueducto', 'id');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function pozoProfundos()
+    {
+        return $this->hasMany('App\Models\PozoProfundo', 'id_acueducto', 'id');
     }
     
 
