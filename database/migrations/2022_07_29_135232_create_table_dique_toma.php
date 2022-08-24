@@ -12,29 +12,50 @@ return new class extends Migration
      * @return void
      */
     public function up()
+
     {
-        Schema::create('dique_tomas', function (Blueprint $table) {
+         Schema::create('dique_tomas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('reg');
             $table->string('nombre')->comment('nombre dique');
-            $table->unsignedBigInteger('estado');
-            $table->unsignedBigInteger('parroquia');
-            $table->unsignedBigInteger('municipio');
-            $table->string('desc_ubicacion')->comment('referencia sector');
-            $table->unsignedDecimal('utm_a', $precision=15);
-            $table->unsignedDecimal('utm_b', $precision=15);
-            $table->unsignedBigInteger('acueducto');
             $table->string('toma_rio');
             $table->unsignedDecimal('caudal_diseno');
             $table->unsignedDecimal('caudal_recibe');
             $table->integer('status');
+                        $table->unsignedBigInteger('id_infraestructura');
+            $table->foreign('id_infraestructura')->references('id')->on('infraestructura');
+
+
             $table->foreign('acueducto')->references('id')->on('acueductos');
             $table->foreign('estado')->references('id')->on('estados');
             $table->foreign('municipio')->references('id')->on('municipios');
             $table->foreign('parroquia')->references('id')->on('parroquias');
             $table->softDeletes();
 
+
             $table->timestamps();
+        // Schema::create('dique_tomas', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->unsignedBigInteger('reg');
+        //     $table->string('nombre')->comment('nombre dique');
+        //     $table->unsignedBigInteger('estado');
+        //     $table->unsignedBigInteger('parroquia');
+        //     $table->unsignedBigInteger('municipio');
+        //     $table->string('desc_ubicacion')->comment('referencia sector');
+        //     $table->unsignedDecimal('utm_a', $precision=15);
+        //     $table->unsignedDecimal('utm_b', $precision=15);
+        //     $table->unsignedBigInteger('acueducto');
+        //     $table->string('toma_rio');
+        //     $table->unsignedDecimal('caudal_diseno');
+        //     $table->unsignedDecimal('caudal_recibe');
+        //     $table->integer('status');
+        //     $table->foreign('acueducto')->references('id')->on('acueductos');
+        //     $table->foreign('estado')->references('id')->on('estados');
+        //     $table->foreign('municipio')->references('id')->on('municipios');
+        //     $table->foreign('parroquia')->references('id')->on('parroquias');
+        //     $table->softDeletes();
+
+        //     $table->timestamps();
 
         });
     }
