@@ -54,7 +54,7 @@ class Captacion extends Model
     {
         return $this->hasOne('App\Models\Acueducto', 'id', 'id_acueducto');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -62,6 +62,6 @@ class Captacion extends Model
     {
         return $this->hasOne('App\Models\TipoFuente', 'id', 'id_tipo_fuente');
     }
-    
+
 
 }
