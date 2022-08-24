@@ -26,6 +26,7 @@ return new class extends Migration
             $table->unsignedDecimal('diametro_descarga');
             $table->string('tipo_sello')->comment('tipo de sello');
             $table->tinyInteger('operatividad');
+            $table->tinyInteger('en_uso');
             $table->unsignedBigInteger('id_estacion_bombeo');
             $table->unsignedBigInteger('id_fabricante');
             $table->foreign('id_estacion_bombeo')->references('id')->on('estacion_bombeo');

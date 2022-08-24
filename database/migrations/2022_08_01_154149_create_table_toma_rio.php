@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('nombre')->comment('nombre toma rio');
             $table->unsignedBigInteger('id_infraestructura');
             $table->foreign('id_infraestructura')->references('id')->on('infraestructura');
+
             $table->softDeletes();
             $table->timestamps();
         });

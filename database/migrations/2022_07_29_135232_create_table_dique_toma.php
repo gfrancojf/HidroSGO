@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
 
     {
-         Schema::create('dique_tomas', function (Blueprint $table) {
+    
+     Schema::create('dique_tomas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('reg');
             $table->string('nombre')->comment('nombre dique');
@@ -34,6 +35,7 @@ return new class extends Migration
 
 
             $table->timestamps();
+        
         // Schema::create('dique_tomas', function (Blueprint $table) {
         //     $table->id();
         //     $table->unsignedBigInteger('reg');
