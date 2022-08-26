@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('detalles_tecnicos_estacion_bombeo', function (Blueprint $table) {
             $table->id();
-            $table->unsignedDecimal('succion_min');
-            $table->unsignedDecimal('succion_max');
-            $table->unsignedDecimal('descarga_min');
-            $table->unsignedDecimal('descarga_max');
-            $table->unsignedDecimal('amp_min');
-            $table->unsignedDecimal('amp_max');
-            $table->unsignedDecimal('voltaje_min');
-            $table->unsignedDecimal('voltaje_max');
+            $table->unsignedDecimal('succion');
+            $table->unsignedDecimal('descarga');
+            $table->unsignedDecimal('amperaje');
+            $table->unsignedDecimal('voltaje');
+            $table->unsignedDecimal('grupo');
+            $table->string('observaciones');
+            $table->date('fecha_medicion');
+            
             $table->unsignedBigInteger('id_estacion_bombeo');
             $table->foreign('id_estacion_bombeo')->references('id')->on('estacion_bombeo');
             $table->softDeletes();

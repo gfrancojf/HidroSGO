@@ -19,6 +19,12 @@ return new class extends Migration
     $table->unsignedDecimal('caudal_diseño');
     $table->unsignedBigInteger('id_tipo_planta');
     $table->unsignedBigInteger('id_infraestructura');
+    $table->integer('diseno_entrada_caudal');
+    $table->integer('caudal_entrada');
+    $table->integer('caudal_salida');
+    $table->integer('rango');
+    $table->integer('porcentaje_operacion');
+
     $table->foreign('id_tipo_planta')->references('id')->on('tipo_planta');
     $table->foreign('id_infraestructura')->references('id')->on('infraestructura');
     $table->softDeletes();
