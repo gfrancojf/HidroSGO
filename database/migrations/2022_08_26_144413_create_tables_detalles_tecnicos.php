@@ -24,6 +24,21 @@ return new class extends Migration
             $table->integer('color_salida');
             $table->integer('descarga_max');
             $table->integer('cloro_residual');
+            $table->integer('cloro_consumido');
+            $table->integer('sulfato_aluminio_solido');
+            $table->integer('sulfato_aluminio_liquido');
+            $table->unsignedBigInteger('id_planta');
+
+            $table->foreign('id_planta')->references('id')->on('plantas');
+            $table->softDeletes();
+            $table->timestamps();
+        });
+        Schema::create('detalles_consumo_plantas', function (Blueprint $table) {
+            $table->id();
+            $table->date('fecha_medicion');
+            $table->integer('cloro_consumido');
+            $table->integer('sulfato_aluminio_solido');
+            $table->integer('sulfato_aluminio_liquido');
             $table->unsignedBigInteger('id_planta');
 
             $table->foreign('id_planta')->references('id')->on('plantas');
