@@ -48,7 +48,7 @@ class UbicacionGeografica extends Model
     {
         return $this->hasMany('App\Models\DiqueToma', 'id_coordenadas', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -56,7 +56,7 @@ class UbicacionGeografica extends Model
     {
         return $this->hasMany('App\Models\Embalse', 'id_coordenadas', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -64,7 +64,7 @@ class UbicacionGeografica extends Model
     {
         return $this->hasMany('App\Models\EstacionBombeo', 'id_coordenadas', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -72,7 +72,7 @@ class UbicacionGeografica extends Model
     {
         return $this->hasMany('App\Models\Planta', 'id_coordenadas', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -80,7 +80,7 @@ class UbicacionGeografica extends Model
     {
         return $this->hasMany('App\Models\PozoProfundo', 'id_coordenadas', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -88,6 +88,6 @@ class UbicacionGeografica extends Model
     {
         return $this->hasMany('App\Models\TomaRio', 'id_coordenadas', 'id');
     }
-    
+
 
 }

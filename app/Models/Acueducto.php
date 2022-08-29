@@ -5,28 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-/**
- * Class Acueducto
- *
- * @property $id
- * @property $nombre
- * @property $id_estado
- * @property $capacidad_distribucion
- * @property $capacidad_modificada
- * @property $deleted_at
- * @property $created_at
- * @property $updated_at
- *
- * @property Captacion[] $captacions
- * @property DiqueToma[] $diqueTomas
- * @property EstacionBombeo[] $estacionBombeos
- * @property Estado $estado
- * @property Infraestructura[] $infraestructuras
- * @property Planta[] $plantas
- * @property PozoProfundo[] $pozoProfundos
- * @package App
- * @mixin \Illuminate\Database\Eloquent\Builder
- */
+
 class Acueducto extends Model
 {
     use SoftDeletes;
@@ -55,7 +34,7 @@ class Acueducto extends Model
     {
         return $this->hasMany('App\Models\Captacion', 'id_acueducto', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -63,7 +42,7 @@ class Acueducto extends Model
     {
         return $this->hasMany('App\Models\DiqueToma', 'id_acueducto', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -71,7 +50,7 @@ class Acueducto extends Model
     {
         return $this->hasMany('App\Models\EstacionBombeo', 'id_acueducto', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -79,7 +58,7 @@ class Acueducto extends Model
     {
         return $this->hasOne('App\Models\Estado', 'id', 'id_estado');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -87,7 +66,7 @@ class Acueducto extends Model
     {
         return $this->hasMany('App\Models\Infraestructura', 'id_acueducto', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -95,7 +74,7 @@ class Acueducto extends Model
     {
         return $this->hasMany('App\Models\Planta', 'id_acueducto', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -103,6 +82,6 @@ class Acueducto extends Model
     {
         return $this->hasMany('App\Models\PozoProfundo', 'id_acueducto', 'id');
     }
-    
+
 
 }
