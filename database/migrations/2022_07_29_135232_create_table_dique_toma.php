@@ -24,6 +24,7 @@ return new class extends Migration
             $table->unsignedDecimal('caudal_recibe');
             $table->integer('status');
             $table->unsignedBigInteger('id_infraestructura');
+<<<<<<< HEAD
             //$table->unsignedBigInteger('id_acueducto');
 
             $table->foreign('id_infraestructura')->references('id')->on('infraestructura');
@@ -33,10 +34,13 @@ return new class extends Migration
             // $table->foreign('estado')->references('id')->on('estados');
             // $table->foreign('municipio')->references('id')->on('municipios');
             // $table->foreign('parroquia')->references('id')->on('parroquias');
+=======
+
+            $table->foreign('id_infraestructura')->references('id')->on('infraestructura');
+>>>>>>> Alex
             $table->softDeletes();
-
-
             $table->timestamps();
+<<<<<<< HEAD
 
         // Schema::create('dique_tomas', function (Blueprint $table) {
         //     $table->id();
@@ -61,6 +65,9 @@ return new class extends Migration
 
         //     $table->timestamps();
 
+=======
+        
+>>>>>>> Alex
         });
     }
 
