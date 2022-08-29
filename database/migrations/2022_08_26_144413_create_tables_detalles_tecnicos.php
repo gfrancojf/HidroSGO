@@ -45,6 +45,17 @@ return new class extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+        Schema::create('detalles_tecnicos_dique_toma', function (Blueprint $table) {
+            $table->id();
+            $table->date('fecha_medicion');
+            $table->float('caudal');
+            $table->string('observacion');
+            $table->unsignedBigInteger('id_dique_toma');
+
+            $table->foreign('id_dique_toma')->references('id')->on('dique_tomas');
+            $table->softDeletes();
+            $table->timestamps();
+        });
     }
 
     /**

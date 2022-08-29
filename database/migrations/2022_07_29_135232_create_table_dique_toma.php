@@ -23,17 +23,10 @@ return new class extends Migration
             $table->unsignedDecimal('caudal_diseno');
             $table->unsignedDecimal('caudal_recibe');
             $table->integer('status');
-                        $table->unsignedBigInteger('id_infraestructura');
+            $table->unsignedBigInteger('id_infraestructura');
+            
             $table->foreign('id_infraestructura')->references('id')->on('infraestructura');
-
-
-            $table->foreign('acueducto')->references('id')->on('acueductos');
-            $table->foreign('estado')->references('id')->on('estados');
-            $table->foreign('municipio')->references('id')->on('municipios');
-            $table->foreign('parroquia')->references('id')->on('parroquias');
             $table->softDeletes();
-
-
             $table->timestamps();
         
         // Schema::create('dique_tomas', function (Blueprint $table) {
