@@ -54,6 +54,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tables_detalles_tecnicos');
+        Schema::dropIfExists('detalles_tecnicos_plantas');
+        Schema::dropIfExists('detalles_consumo_plantas');
     }
 };
