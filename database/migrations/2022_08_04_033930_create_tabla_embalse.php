@@ -19,6 +19,7 @@ Schema::create('embalses', function (Blueprint $table) {
     $table->unsignedBigInteger('reg')->comment('por descubrir');
     $table->string('nombre')->comment('nombre pozo profundo');
     $table->string('cronologia')->comment('cronologia');
+    $table->string('diseno');
     $table->unsignedBigInteger('id_infraestructura');
     $table->foreign('id_infraestructura')->references('id')->on('infraestructura');
     $table->softDeletes();

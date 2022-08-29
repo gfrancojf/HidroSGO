@@ -56,6 +56,18 @@ return new class extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+        Schema::create('detalles_tecnicos_embalse', function (Blueprint $table) {
+            $table->id();
+            $table->float('cota');
+            $table->float('extraccion');
+            $table->float('observacion');
+            $table->date('fecha_medicion');
+            $table->unsignedBigInteger('id_dique_toma');
+
+            $table->foreign('id_dique_toma')->references('id')->on('dique_tomas');
+            $table->softDeletes();
+            $table->timestamps();
+        });
     }
 
     /**
