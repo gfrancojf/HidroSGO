@@ -36,9 +36,9 @@ return new class extends Migration
         Schema::create('detalles_consumo_plantas', function (Blueprint $table) {
             $table->id();
             $table->date('fecha_medicion');
-            $table->integer('cloro_consumido');
-            $table->integer('sulfato_aluminio_solido');
-            $table->integer('sulfato_aluminio_liquido');
+            $table->float('cloro_consumido');
+            $table->float('sulfato_aluminio_solido');
+            $table->float('sulfato_aluminio_liquido');
             $table->unsignedBigInteger('id_planta');
 
             $table->foreign('id_planta')->references('id')->on('plantas');
