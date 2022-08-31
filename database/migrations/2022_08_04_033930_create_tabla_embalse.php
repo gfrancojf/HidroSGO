@@ -17,7 +17,7 @@ return new class extends Migration
 Schema::create('embalses', function (Blueprint $table) {
     $table->id();
     $table->unsignedBigInteger('reg')->comment('por descubrir');
-    $table->string('nombre')->comment('nombre pozo profundo');
+    $table->string('nombre')->comment('nombre embalse');
     $table->string('cronologia')->comment('cronologia');
     $table->string('diseno');
     $table->unsignedBigInteger('id_infraestructura');

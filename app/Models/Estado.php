@@ -57,7 +57,7 @@ class Estado extends Model
      */
     public function ciudades()
     {
-        return $this->hasMany('App\Models\Ciudade', 'estado_id', 'id');
+        return $this->hasMany('App\Models\Ciudade', 'id_estado', 'id');
     }
     
     /**
@@ -97,7 +97,7 @@ class Estado extends Model
      */
     public function municipios()
     {
-        return $this->hasMany('App\Models\Municipio', 'estado_id', 'id');
+        return $this->hasMany('App\Models\Municipio', 'id_estado', 'id');
     }
     
     /**

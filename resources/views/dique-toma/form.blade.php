@@ -36,7 +36,7 @@
                         </div>
             {{-- <div class="col-4">
                 {{ Form::label('estado') }}
-                {{ Form::select('estado_id',$estados,$diqueToma->estado,['class'=>'form-control', 'id' => 'estado', 'onchange'=>'function llenarMunicipios()' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }}
+                {{ Form::select('id_estado',$estados,$diqueToma->estado,['class'=>'form-control', 'id' => 'estado', 'onchange'=>'function llenarMunicipios()' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }}
                 {!! $errors->first('estado', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             <div class="col-4">

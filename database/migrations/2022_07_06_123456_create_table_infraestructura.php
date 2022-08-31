@@ -31,12 +31,14 @@ return new class extends Migration
             $table->unsignedBigInteger('id_sistema');
             $table->unsignedBigInteger('id_acueducto');
             $table->unsignedBigInteger('id_tipo_proceso_hidrico');
+            $table->unsignedBigInteger('id_user');
 
             $table->foreign('id_coordenadas')->references('id')->on('ubicacion_geografica');
             $table->foreign('id_sistema')->references('id')->on('sistemas');
             $table->foreign('id_acueducto')->references('id')->on('acueductos');
             $table->foreign('id_tipo_infraestructura')->references('id')->on('tipo_infraestructura');
             $table->foreign('id_tipo_proceso_hidrico')->references('id')->on('tipo_proceso_hidrico');
+            $table->foreign('id_user')->references('id')->on('users');
             $table->softDeletes();
             $table->timestamps();
         });

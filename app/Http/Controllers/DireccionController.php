@@ -13,7 +13,7 @@ class DireccionController extends Controller
     public function llenarMunicipios(){
         DB::enableQueryLog();
         $id_estado = $_POST['id_estado'];
-        $municipios = Municipio::where('estado_id',$id_estado)->orderBy('municipio','asc')->get();
+        $municipios = Municipio::where('id_estado',$id_estado)->orderBy('municipio','asc')->get();
         $q = DB::getQueryLog();
         // dd($q);
         return json_encode($municipios);

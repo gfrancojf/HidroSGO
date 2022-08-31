@@ -19,7 +19,7 @@ class Municipio extends Model implements Auditable
 
     public function estado()
     {
-        return $this->belongsTo('Estado', 'estado_id', 'id');
+        return $this->belongsTo('Estado', 'id_estado', 'id');
     }
 
     public function parroquias()
