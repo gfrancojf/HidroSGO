@@ -64,7 +64,7 @@ return new class extends Migration
             $table->date('fecha_medicion');
             $table->unsignedBigInteger('id_embalse');
 
-            $table->foreign('id_embalse')->references('id')->on('embalse');
+            $table->foreign('id_embalse')->references('id')->on('embalses');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -75,7 +75,7 @@ return new class extends Migration
             $table->date('fecha_medicion');
             $table->unsignedBigInteger('id_pozo_profundo');
 
-            $table->foreign('id_pozo_profundo')->references('id')->on('pozo_profundo');
+            $table->foreign('id_pozo_profundo')->references('id')->on('pozo_profundos');
             $table->softDeletes();
             $table->timestamps();
         });
