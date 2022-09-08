@@ -33,7 +33,7 @@ return new class extends Migration
             $table->foreign('id_hidrologica')->references('id')->on('hidrologicas');
             $table->softDeletes();
             $table->timestamps();
-        });
+        }); 
         Schema::create('municipios', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_estado');
