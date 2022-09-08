@@ -62,9 +62,43 @@ return new class extends Migration
             $table->float('extraccion');
             $table->float('observacion');
             $table->date('fecha_medicion');
-            $table->unsignedBigInteger('id_dique_toma');
+            $table->unsignedBigInteger('id_embalse');
 
-            $table->foreign('id_dique_toma')->references('id')->on('dique_tomas');
+            $table->foreign('id_embalse')->references('id')->on('embalses');
+            $table->softDeletes();
+            $table->timestamps();
+        });
+        Schema::create('detalles_tecnicos_pozos_profundos', function (Blueprint $table) {
+            $table->id();
+            $table->float('extraccion');
+            $table->float('observacion');
+            $table->date('fecha_medicion');
+            $table->unsignedBigInteger('id_pozo_profundo');
+
+            $table->foreign('id_pozo_profundo')->references('id')->on('pozo_profundos');
+            $table->softDeletes();
+            $table->timestamps();
+        });
+        Schema::create('detalles_grupos_estacion_bombeo', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedDecimal('succion_max');
+            $table->unsignedDecimal('succion');
+            $table->unsignedDecimal('succion_min');
+            $table->unsignedDecimal('descarga_max');
+            $table->unsignedDecimal('descarga');
+            $table->unsignedDecimal('descarga_min');
+            $table->unsignedDecimal('amperaje_max');
+            $table->unsignedDecimal('amperaje');
+            $table->unsignedDecimal('amperaje_min');
+            $table->unsignedDecimal('voltaje_max');
+            $table->unsignedDecimal('voltaje');
+            $table->unsignedDecimal('voltaje_min');
+            $table->unsignedDecimal('grupo');
+            $table->string('observaciones');
+            $table->date('fecha_medicion');
+            
+            $table->unsignedBigInteger('id_estacion_bombeo');
+            $table->foreign('id_estacion_bombeo')->references('id')->on('estacion_bombeo');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -79,5 +113,9 @@ return new class extends Migration
     {
         Schema::dropIfExists('detalles_tecnicos_plantas');
         Schema::dropIfExists('detalles_consumo_plantas');
+        Schema::dropIfExists('detalles_tecnicos_dique_toma');
+        Schema::dropIfExists('detalles_tecnicos_embalse');
+        Schema::dropIfExists('detalles_tecnicos_pozos_profundos');
+        Schema::dropIfExists('detalles_grupos_estacion_bombeo');
     }
 };

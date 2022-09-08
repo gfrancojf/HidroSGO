@@ -17,14 +17,6 @@ return new class extends Migration
      $table->id();
      $table->string('nombre')->comment('nombre estacion de bombeo');
      $table->unsignedBigInteger('cantidad_grupos');
-     $table->unsignedDecimal('succion_max');
-     $table->unsignedDecimal('succion_min');
-     $table->unsignedDecimal('descarga_max');
-     $table->unsignedDecimal('descarga_min');
-     $table->unsignedDecimal('amperaje_max');
-     $table->unsignedDecimal('amperaje_min');
-     $table->unsignedDecimal('voltaje_max');
-     $table->unsignedDecimal('voltaje_min');
      $table->unsignedBigInteger('id_tipo_estacion_bombeo');
      $table->unsignedBigInteger('id_tipo_servicio');
      $table->unsignedBigInteger('id_infraestructura');
