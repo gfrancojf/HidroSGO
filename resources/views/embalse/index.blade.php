@@ -21,6 +21,7 @@
     </div>
 
     <div class="container-fluid">
+
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -65,7 +66,7 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $embalse->nombre }}</td>
-											<td>{{ $embalse->estado->estado }}</td>
+											
 											<td>{{ $embalse->proposito }}</td>
 											<td>{{ $embalse->propietario }}</td>
 

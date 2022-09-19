@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Embalse;
+use App\Models\Infraestructura;
 use App\Models\Estado;
 use App\Models\Municipio;
 use App\Models\Parroquia;
@@ -28,7 +29,7 @@ class EmbalseController extends Controller
 
     public function index()
     {
-        $embalses = Embalse::paginate();
+        $embalses = Infraestructura::paginate();
 
         return view('embalse.index', compact('embalses'))
             ->with('i', (request()->input('page', 1) - 1) * $embalses->perPage());

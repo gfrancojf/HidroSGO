@@ -18,9 +18,9 @@ use App\Http\Controllers\TipoValvulasController;
 use App\Http\Controllers\TomaRioController;
 use App\Http\Controllers\UsuariosControllers;
 use Illuminate\Support\Facades\Route;
-use p\Http\Controllers\FabricantesController;
-use p\Http\Controllers\RolesControllers;
-use p\Http\Controllers\ValvulasController;
+use App\Http\Controllers\FabricantesController;
+use App\Http\Controllers\RolesControllers;
+use App\Http\Controllers\ValvulasController;
 
 Route::get('/', function () {
     return view('welcome');
